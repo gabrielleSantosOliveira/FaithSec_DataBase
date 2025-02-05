@@ -1,8 +1,10 @@
--- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `outrofaithsec` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `outrofaithsec`;
+-- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
 --
 -- Host: localhost    Database: outrofaithsec
 -- ------------------------------------------------------
--- Server version	8.0.39
+-- Server version	8.0.41
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -68,6 +70,7 @@ CREATE TABLE `enfermeiro` (
   `cpf` varchar(20) DEFAULT NULL,
   `endereco` varchar(100) DEFAULT NULL,
   `estadoCracha` enum('habilitado','desabilitado') NOT NULL DEFAULT 'habilitado',
+  `ala` enum('UTI','Internação Geral','nenhum') DEFAULT 'nenhum',
   PRIMARY KEY (`nfc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -78,7 +81,7 @@ CREATE TABLE `enfermeiro` (
 
 LOCK TABLES `enfermeiro` WRITE;
 /*!40000 ALTER TABLE `enfermeiro` DISABLE KEYS */;
-INSERT INTO `enfermeiro` VALUES ('636C0D2A','(11) 98995-9921','(11) 97654-0000',2,'Lucas Yuri','senhaSegura123','1993-09-30','Enfermeiro','12345678922','Av. Paulista, 1000 - São Paulo, SP','habilitado'),('ABC123',NULL,NULL,NULL,'Enfermeiro Teste',NULL,NULL,'Enfermeiro','98765432100',NULL,'desabilitado'),('E387322A','(11) 98765-4321','(11) 97654-3210',15,'Carlos Almeida','senhaSegura123','1990-03-25','Enfermeiro Chefe','12345678900','Av. Paulista, 1000 - São Paulo, SP','desabilitado');
+INSERT INTO `enfermeiro` VALUES ('1235','(31) 97200-7536','(31) 97200-7536',0,'Guilherme','1234567','2022-02-10','Enfermeiro Cirúrgico','114.358.056-74','casa','desabilitado','UTI'),('636C0D2A','(11) 98995-9921','(11) 97654-0000',2,'Lucas Yuri','senhaSegura123','1993-09-30','Enfermeiro','12345678922','Av. Paulista, 1000 - São Paulo, SP','desabilitado','nenhum'),('ABC123',NULL,NULL,NULL,'Enfermeiro Teste',NULL,NULL,'Enfermeiro','98765432100',NULL,'desabilitado','nenhum'),('E387322A','(11) 98765-4321','(11) 97654-3210',15,'Carlos Almeida','senhaSegura123','1990-03-25','Enfermeiro Chefe','12345678900','Av. Paulista, 1000 - São Paulo, SP','habilitado','nenhum');
 /*!40000 ALTER TABLE `enfermeiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-02-03 19:04:09
+-- Dump completed on 2025-02-04 23:43:45
